@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FILE SYSTEM SIMULATOR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with title and project info -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="title">FILE SYSTEM SIMULATOR</h1>
+            <p class="subtitle">Contiguous Allocation • Disk Blocks • Crash Recovery</p>
+        </div>
+    </header>
+
+    <!-- Main container -->
+    <main class="container">
+        <!-- Left panel: Controls -->
+        <section class="panel control-panel">
+            <h2 class="panel-title">⚙️ CONTROLS</h2>
+
+            <!-- Create File Section -->
+            <div class="control-group">
+                <h3 class="control-heading">CREATE FILE</h3>
+                <div class="input-row">
+                    <input 
+                        type="text" 
+                        id="filename" 
+                        placeholder="filename" 
+                        maxlength="20"
+                        class="input-field"
+                    >
+                </div>
+                <div class="input-row">
+                    <input 
+                        type="number" 
+                        id="filesize" 
+                        placeholder="blocks" 
+                        min="1" 
+                        max="50"
+                        class="input-field"
+                    >
+                </div>
+                <button id="createBtn" class="btn btn-create">
+                    <span class="btn-icon">➕</span> CREATE
+                </button>
+            </div>
+
+            <!-- Delete File Section -->
+            <div class="control-group">
+                <h3 class="control-heading">DELETE FILE</h3>
+                <div class="input-row">
+                    <input 
+                        type="text" 
+                        id="deleteFilename" 
+                        placeholder="filename" 
+                        maxlength="20"
+                        class="input-field"
+                    >
+                </div>
+                <button id="deleteBtn" class="btn btn-delete">
+                    <span class="btn-icon">🗑️</span> DELETE
+                </button>
+            </div>
+
+            <!-- System Actions -->
+            <div class="control-group">
+                <h3 class="control-heading">SYSTEM</h3>
+                <button id="crashBtn" class="btn btn-crash">
+                    <span class="btn-icon">💥</span> CRASH
+                </button>
+                <button id="recoverBtn" class="btn btn-recover">
+                    <span class="btn-icon">🔄</span> RECOVER
+                </button>
+                <button id="refreshBtn" class="btn btn-refresh">
+                    <span class="btn-icon">🔃</span> REFRESH
+                </button>
+            </div>
+        </section>
+
+        <!-- Right panel: Visualization and Info -->
+        <section class="panel viz-panel">
+            <!-- Status Message -->
+            <div class="status-container">
+                <div id="status" class="status-message">
+                    Initializing system...
+                </div>
+            </div>
+
+            <!-- Disk Visualization -->
+            <div class="viz-section">
+                <h2 class="panel-title">💾 DISK (50 BLOCKS)</h2>
+                <div id="diskVisualization" class="disk-grid">
+                    <!-- 50 blocks will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- File Directory -->
+            <div class="viz-section">
+                <h2 class="panel-title">📁 FILES</h2>
+                <div id="fileList" class="file-list">
+                    <div class="empty-state">No files. Create one to begin.</div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #22ff00;"></div>
+                    <span>FREE</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background-color: #ff0055;"></div>
+                    <span>USED</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>File System Simulator v1.0 • Contiguous Allocation Engine</p>
+    </footer>
+
+    <!-- Load the JavaScript controller -->
+    <script src="script.js"></script>
+</body>
+</html>
