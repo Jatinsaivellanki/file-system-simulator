@@ -27,7 +27,8 @@ const path = require('path');
 // SETUP
 // ============================================================
 const app = express();
-const PORT = 3002; 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT);
 
 // Get the absolute path to the C++ binary
 // On Windows: ../backend/fs_simulator.exe
